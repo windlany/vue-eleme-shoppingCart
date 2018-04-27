@@ -1,0 +1,176 @@
+* {
+    padding: 0;
+    margin: 0;
+    color: #494949;
+}
+li {
+    list-style: none;
+}
+a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: #000;
+} 
+header {
+    height: 65px;
+    line-height: 65px;
+    color: #fff;
+    font-size: 17px;
+    text-align: center;
+    background-color: #00a0dc;
+    position: relative;
+}
+.notice {
+    height: 40px; 
+}
+.goods {
+    display: flex;
+    position: absolute;
+    top: 105px;
+    bottom: 46px;
+    width: 100%;
+    background-color: #eee;
+    padding-top: 2px;
+    /* overflow: hidden; */
+}
+.left {
+    /* grow  shrink basis */
+    flex: 0 0 80px;    
+    width: 80px;
+    background: #f3f5f7;
+    overflow: scroll;
+}  
+.left>ul>li { 
+    height: 54px;
+    line-height: 54px;
+    text-align: center;  
+    border-bottom: 1px solid #ccc;
+    box-sizing: border-box;
+}    
+.click {
+    background-color: #fff;
+}
+.right {
+    flex: 1;
+    background-color: #fff;
+    overflow: scroll;
+} 
+.right li h1 {
+    padding-left: 5%;
+    background-color: #f3f5f7;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.good {
+    min-height: 300px;
+    background-color: #fff;
+    margin: 0 5%;
+}
+.good li {
+    border-bottom: 1px solid #ccc; 
+    height: 80px;
+    font-size: 21px;
+    line-height: 80px;
+    text-align: right; 
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+} 
+.good li i {
+    font-size: 18px;
+    line-height: 80px; 
+    color: #00a0dc;
+    padding: 0 4px;
+} 
+/* 点击添加按钮缓慢弹出订单个数以及减少按钮 */
+.pop {
+    display: inline-block;
+    position: relative;
+    left: 48px;
+    opacity: 0;
+    transition: all ease .5s;
+}
+.pop i {
+    transform: rotate(0deg); 
+    transition: all ease .5s;
+}
+.mov {
+    left: 0;
+    opacity: 1;
+}
+.pop.mov i {
+    transform: rotate(-360deg);
+}
+.good li>div>i {
+    position: relative; 
+    background-color: #fff;
+    z-index: 5;
+} 
+
+
+
+
+.footer {
+    background-color: #555;
+    width: 100%;
+    height: 46px;
+    line-height: 46px;
+    bottom: 0;
+    position: fixed;
+    font-size: 45px;
+    padding-left: 10px;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+.footer i {
+    color: #fff;
+}
+.footer .total {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 0px;
+    left: 46px;
+    color: #fff;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #00a0dc;
+    font-size: 10px;
+}
+.pay {
+    /* background-color: rgb(78, 207, 45); */
+    background-color: #00a0dc;
+    color: #fff;
+    font-size: 18px;
+    padding: 0 20px;
+}
+.notPay {
+    background-color: #bbb;
+}
+
+/* 运动小球 */
+.pointPre {  /* 动画的小球 */
+    display: none;
+}
+.pointOuter {
+    position: absolute;  
+    z-index: 114;  
+    /* 当小球抛出时遵循贝塞尔曲线过渡 */
+    -webkit-transition: all 1s cubic-bezier(0.39,-0.4,0.83,0.23) 0s;
+    transition: all 1s cubic-bezier(0.39,-0.4,0.83,0.23) 0s; 
+}
+
+.point-inner {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #00a0dc;
+    /* 过渡属性名称 过渡时间 过渡曲线 延迟时间 */
+    transition: all 1s linear 0s;
+    -webkit-transition: all 1s ease 0s;     
+}  

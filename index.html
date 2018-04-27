@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>elem联动菜单</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <link href="../tool/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="./index.css" />
+</head>
+<body>
+    <div id="app">
+        <header>
+            我是一个仿饿了么动画
+        </header>
+        <div class="notice"></div>
+        <div class="goods">
+            <div class="left" ref="left">
+                <ul>
+                    <li v-for="(item, index) in navs" 
+                        :key="index" 
+                        :class="{click: selector==index}"
+                        @click="toHash(item, index)"
+                        >{{item}}</li>
+                </ul>
+            </div>
+            <div class="right" @scroll="listScroll">
+                <ul>
+                    <li v-for="(good, index1) in goods" :key="index1" :id="good.title">
+                        <h1 class="goodTitle">{{good.title}}</h1>
+                        <ul class="good">
+                            <li v-for="(item, index2) in good.items" :key="index2">
+                                <div>
+                                    {{item.food}}
+                                </div>
+                                <div>        
+                                    <div :class="{pop: true, mov: item.num>0}">
+                                        <i class="fa fa-minus-circle" @click="reduce(index1, index2)"></i>
+                                        {{item.num}}
+                                    </div>
+                                    <i class="fa fa-plus-circle" @click="increase(index1, index2, $event)"></i>
+                                </div>
+                            </li>
+                        </ul>
+                    </li> 
+                </ul>
+            </div>
+        </div>
+
+        <!-- 运动的小球 -->
+        <div id="points">
+            <div class="pointOuter pointPre">
+                <div class="point-inner"></div>
+            </div>  
+            <div class="pointOuter pointPre">
+                <div class="point-inner"></div>
+            </div>  
+            <div class="pointOuter pointPre">
+                <div class="point-inner"></div>
+            </div>  
+            <div class="pointOuter pointPre">
+                <div class="point-inner"></div>
+            </div>  
+            <div class="pointOuter pointPre">
+                <div class="point-inner"></div>
+            </div>  
+            <div class="pointOuter pointPre">
+                <div class="point-inner"></div>
+            </div>  
+            <div class="pointOuter pointPre">
+                <div class="point-inner"></div>
+            </div>  
+        </div>
+        
+        <div class="footer">
+            <div>
+                <i class="fa fa-shopping-cart"></i>
+                <!--记录订单总数  -->
+                <div class="total" v-show="total>0">{{total}}</div>
+            </div>
+            <div :class="{pay: true, notPay: total==0}">去结算</div>
+        </div>
+    </div>
+
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>

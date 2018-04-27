@@ -97,7 +97,7 @@ var app = new Vue({
                     outer.removeAttr("style").addClass("pointPre");
                     inner.removeAttr("style");
                 }, 1000);  //这里的延迟值和小球的运动时间相关
-            }, 1); //小球运动坐标
+            }, 1);
         },
         reduce(index1, index2) {
             this.total--;

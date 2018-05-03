@@ -171,6 +171,6 @@ header {
     border-radius: 50%;
     background-color: #00a0dc;
     /* 过渡属性名称 过渡时间 过渡曲线 延迟时间 */
-    transition: all 1s linear 0s;
+    transition: all 1s ease 0s;
     -webkit-transition: all 1s ease 0s;     
 }  
